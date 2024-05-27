@@ -66,11 +66,9 @@ tasks.withType(Test).configureEach {
             exceptionFormat "short"
         }
     }
+}
     task smoke(type: Test) {
         useJUnitPlatform {
             includeTags("smoke")
         }
 }
-
-
-
