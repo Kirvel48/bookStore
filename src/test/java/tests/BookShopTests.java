@@ -4,6 +4,7 @@ import api.CollectionTests;
 import data.DataTest;
 import helpers.WithLogin;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import page.ProfilePageObject;
 
@@ -17,6 +18,7 @@ public class BookShopTests extends TestBase {
     @Test
     @DisplayName("Тест на удаление книги из корзины")
     @WithLogin
+    @Tag("smoke")
     void bookDeleteTest() {
         step("Удаление книг из корзины", () -> CollectionTests.deleteAllBook(authorizationResponse.getUserId(), authorizationResponse.getToken()));
         step("Добавление книги в корзину", () -> CollectionTests.addBook(authorizationResponse.getUserId(), dataTest.bookId, authorizationResponse.getToken()));
