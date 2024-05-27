@@ -1,7 +1,7 @@
 package api;
 
-import models.ApiLoginTest;
-import models.ApiLoginTestResponse;
+import models.ApiLoginModel;
+import models.ApiLoginResponseModel;
 
 import static io.restassured.RestAssured.*;
 import static spec.spec.requestSpec;
@@ -9,18 +9,19 @@ import static spec.spec.responseSpec;
 
 public class TokenProvider {
 
-    public static ApiLoginTestResponse requestToken(String login,String password){
+    public static ApiLoginResponseModel requestToken(String login, String password){
 
-        ApiLoginTest body = new ApiLoginTest();
+        ApiLoginModel body = new ApiLoginModel();
         body.setUserName(login);
         body.setPassword(password);
         return
                 given(requestSpec)
+                        .body(body)
                         .when()
-                        .post("https://demoqa.com/Account/v1/Login")
+                        .post("/Account/v1/Login")
                         .then()
                         .spec(responseSpec)
-                        .extract().as(ApiLoginTestResponse.class);
+                        .extract().as(ApiLoginResponseModel.class);
     }
 }
 

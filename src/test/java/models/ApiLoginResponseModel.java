@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiLoginTestResponse {
+public class ApiLoginResponseModel {
     private String userId, password, token, expires;
     @JsonProperty("username")
     private String userName;

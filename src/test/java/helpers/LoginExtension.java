@@ -1,7 +1,7 @@
 package helpers;
 
 import data.DataTest;
-import models.ApiLoginTestResponse;
+import models.ApiLoginResponseModel;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.Cookie;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class LoginExtension implements BeforeEachCallback {
 
 
-    public static ApiLoginTestResponse authorizationResponse;
+    public static ApiLoginResponseModel authorizationResponse;
 
     public void beforeEach(ExtensionContext context) {
         DataTest dataTest = new DataTest();
